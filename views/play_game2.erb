@@ -1,4 +1,5 @@
-<pre><%= session[:game].opponent_board_view(session[:game].player_1) %></pre>
-<pre><%= session[:game].opponent_board_view(session[:game].player_2) %></pre>
-<pre><%= session[:game].own_board_view(session[:game].player_1) %></pre>
-<pre><%= session[:game].own_board_view(session[:game].player_2) %></pre>
+witch player will shoot first?
+<p>
+<a href="/p2p/play/p1"><button type="button"><%= session[:player_1] %> </button></a>
+<a href="/p2p/play/p2"><button type="button"><%= session[:player_2] %> </button></a>
+</p>

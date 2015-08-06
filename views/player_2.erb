@@ -1,0 +1,9 @@
+<%= session[:player_2] %>'s turn
+<% if @coordinates %>
+  <%= session[:game].player_1.shoot @coordinates.to_sym %>
+<% end %>
+<pre><% session[:game].opponent_board_view(session[:game].player_2) %></pre>
+<form action="/p2p/play/p1" method="post">
+<input type="text" name="coordinates">
+<input type="submit" value="Fire">
+</form>
