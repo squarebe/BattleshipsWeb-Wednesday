@@ -1,10 +1,13 @@
 <div>
   <% if @name != "" %>
   Hello, <%= @name %>
+  <% session[:player_1] = @name %>
   <% else %>
   Hello, Player 1
+  <% session[:player_1] = 'Player1' %>
   <% end %>
 <form action="/start_game">
   <input type="submit" value ="Start Game">
 </form>
+<a href="/p2p">Register Player2</a>
 </div>

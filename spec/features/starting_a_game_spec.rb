@@ -39,6 +39,22 @@ feature 'Starting a new game' do
     click_button 'Fire'
     expect(page).to have_content 'hit'
   end
+
+  scenario 'i can play a p2p game' do
+    visit '/play'
+    click_link 'Register Player2'
+    expect(page).to have_content 'Enter Player2s name'
+  end
+
+  scenario 'i can register player2' do
+    visit '/'
+    click_link 'New Game'
+    click_button 'Submit'
+    click_link 'Register Player2'
+    click_button 'Submit'
+    expect(page).to have_content 'Player1 vs Player2'
+  end
+
 end
 
 feature 'playing the game' do

@@ -1,0 +1,6 @@
+  <% if @name != "" %>
+  <% session[:player_2] = @name %>
+  <% else %>
+  <% session[:player_2] = 'Player2' %>
+  <% end %>
+<%= session[:player_1] %> vs <%= session[:player_2] %>

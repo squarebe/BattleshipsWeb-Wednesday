@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'battleships'
+require 'sinatra/session'
 
 class BattleshipsWeb < Sinatra::Base
   # force port 3000 for Nitrous
@@ -7,6 +8,8 @@ class BattleshipsWeb < Sinatra::Base
     set :bind, '0.0.0.0'
     set :port, 3000
   end
+
+  enable :sessions
 
   set :views, proc { File.join(root, '..', 'views') }
 
@@ -24,14 +27,24 @@ class BattleshipsWeb < Sinatra::Base
   end
 
   get '/start_game' do
-    $game = Game.new Player, Board
-    $game.player_2.place_ship Ship.battleship, :B1, :vertically
+    session[:game] = Game.new Player, Board
+    session[:game].player_2.place_ship Ship.battleship, :B1, :vertically
     erb :play_game
   end
 
   post '/start_game' do
     @coordinates = params[:coordinates].capitalize
     erb :play_game
+  end
+
+  get '/p2p' do
+    session[:game] = Game.new Player, Board
+    erb :game_2
+  end
+
+  get '/p2p/place_ships' do
+    @name = params[:name]
+    erb :place_ships
   end
 
   # start the server if ruby file executed directly
