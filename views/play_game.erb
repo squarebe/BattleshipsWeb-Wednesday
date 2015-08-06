@@ -1,0 +1,13 @@
+<div>
+  <form action="/start_game" method="post">
+  <input type="text" name="coordinates">
+  <input type="submit" value="Fire">
+  </form>
+  <% if @coordinates %>
+    <%= $game.player_1.shoot @coordinates.to_sym %>
+  <% end %>
+  <% if $game.has_winner? %>
+  <a href="/">New Game</a>
+  <% end %>
+  <pre><%= $game.opponent_board_view($game.player_1) %></pre>
+</div>
