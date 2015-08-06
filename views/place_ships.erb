@@ -1,6 +1,73 @@
-  <% if @name != "" %>
+<% if @name %>  
+<% if @name != "" %>
   <% session[:player_2] = @name %>
   <% else %>
   <% session[:player_2] = 'Player2' %>
   <% end %>
+<% end %>
 <%= session[:player_1] %> vs <%= session[:player_2] %>
+<p>
+<% if (session[:game].own_board_view(session[:game].player_1)) == (session[:game].opponent_board_view(session[:game].player_2)) %>
+<%= session[:player_1] %> enter ship coordinates
+   <form action="/p2p/place_ships" method="post"> 
+<% else %>
+<%= session[:player_2] %> enter ship coordinates
+    <form action="/p2p/play_game2" method="post"> 
+<% end %>
+  <p>Submarine 
+  <input type="text" name="location1" >
+  <select name="direction1">
+  <option value="horizontally">horizontally</option>
+  <option value="vertically">vertically</option>
+  </select>
+  <p>Submarine 2
+  <input type="text" name="location6" >
+  <select name="direction6">
+  <option value="horizontally">horizontally</option>
+  <option value="vertically">vertically</option>
+  </select> 
+  <p>Destroyer
+  <input type="text" name="location2" >
+  <select name="direction2">
+  <option value="horizontally">horizontally</option>
+  <option value="vertically">vertically</option>
+  </select>  
+  <p>Destroyer 2
+  <input type="text" name="location7" >
+  <select name="direction7">
+  <option value="horizontally">horizontally</option>
+  <option value="vertically">vertically</option>
+  </select> 
+  <p>Cruiser
+  <input type="text" name="location3" >
+  <select name="direction3">
+  <option value="horizontally">horizontally</option>
+  <option value="vertically">vertically</option>
+  </select>  
+  <p>Cruiser 2
+  <input type="text" name="location8" >
+  <select name="direction8">
+  <option value="horizontally">horizontally</option>
+  <option value="vertically">vertically</option>
+  </select>  
+  <p>Cruiser 3
+  <input type="text" name="location9" >
+  <select name="direction9">
+  <option value="horizontally">horizontally</option>
+  <option value="vertically">vertically</option>
+  </select>      
+  <p>Battleship
+  <input type="text" name="location4" >
+  <select name="direction4">
+  <option value="horizontally">horizontally</option>
+  <option value="vertically">vertically</option>
+  </select>    
+  <p>Aircraft Carrier
+  <input type="text" name="location5" >
+  <select name="direction5">
+  <option value="horizontally">horizontally</option>
+  <option value="vertically">vertically</option>
+  </select>    
+ <input type="submit" value="Submit">     
+</form>
+          

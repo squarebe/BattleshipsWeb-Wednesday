@@ -46,6 +46,32 @@ class BattleshipsWeb < Sinatra::Base
     @name = params[:name]
     erb :place_ships
   end
+  
+  post '/p2p/place_ships' do
+    session[:game].player_1.place_ship Ship.submarine, params[:location1].capitalize.to_sym, params[:direction1].to_sym
+    session[:game].player_1.place_ship Ship.destroyer, params[:location2].capitalize.to_sym, params[:direction2].to_sym
+    session[:game].player_1.place_ship Ship.cruiser, params[:location3].capitalize.to_sym, params[:direction3].to_sym
+    session[:game].player_1.place_ship Ship.battleship, params[:location4].capitalize.to_sym, params[:direction4].to_sym
+    session[:game].player_1.place_ship Ship.aircraft_carrier, params[:location5].capitalize.to_sym, params[:direction5].to_sym
+    session[:game].player_1.place_ship Ship.submarine, params[:location6].capitalize.to_sym, params[:direction6].to_sym
+    session[:game].player_1.place_ship Ship.destroyer, params[:location7].capitalize.to_sym, params[:direction7].to_sym  
+    session[:game].player_1.place_ship Ship.cruiser, params[:location8].capitalize.to_sym, params[:direction8].to_sym
+    session[:game].player_1.place_ship Ship.cruiser, params[:location9].capitalize.to_sym, params[:direction9].to_sym    
+    erb :place_ships
+  end
+  
+  post '/p2p/play_game2' do
+    session[:game].player_2.place_ship Ship.submarine, params[:location1].capitalize.to_sym, params[:direction1].to_sym
+    session[:game].player_2.place_ship Ship.destroyer, params[:location2].capitalize.to_sym, params[:direction2].to_sym
+    session[:game].player_2.place_ship Ship.cruiser, params[:location3].capitalize.to_sym, params[:direction3].to_sym
+    session[:game].player_2.place_ship Ship.battleship, params[:location4].capitalize.to_sym, params[:direction4].to_sym
+    session[:game].player_2.place_ship Ship.aircraft_carrier, params[:location5].capitalize.to_sym, params[:direction5].to_sym
+    session[:game].player_2.place_ship Ship.submarine, params[:location6].capitalize.to_sym, params[:direction6].to_sym
+    session[:game].player_2.place_ship Ship.destroyer, params[:location7].capitalize.to_sym, params[:direction7].to_sym  
+    session[:game].player_2.place_ship Ship.cruiser, params[:location8].capitalize.to_sym, params[:direction8].to_sym
+    session[:game].player_2.place_ship Ship.cruiser, params[:location9].capitalize.to_sym, params[:direction9].to_sym  
+    erb :play_game2
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
