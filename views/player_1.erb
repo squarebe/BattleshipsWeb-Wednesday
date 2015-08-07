@@ -1,11 +1,10 @@
-<%= session[:player_1] %>'s turn
-<% if @coordinates %>
-  <%= session[:game].player_2.shoot @coordinates.to_sym %>
-<% end %>
 <% if session[:game].has_winner? %>
+  Congratulations! <% session[:player_2] %> Wins! <br>
   <a href="/">New Game</a>
 <% else %>
-<pre><% session[:game].opponent_board_view(session[:game].player_1) %></pre>
+<%= session[:player_1] %>'s turn
+<br><%= @hit %>
+<pre><%= session[:game].opponent_board_view(session[:game].player_1) %></pre>
 <form action="/p2p/play/p2" method="post">
 <input type="text" name="coordinates">
 <input type="submit" value="Fire">
