@@ -160,7 +160,7 @@ feature 'playing the game' do
     select 'horizontally', :from => 'direction9'
     click_button 'Submit'
     click_link 'Player1'
-    fill_in 'coordinates', with: 'A9'
+    fill_in 'coordinates', with: 'A3'
     click_button 'Fire'
     expect(page).to have_content 'hit'
   end
