@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 gem 'battleships' 
 gem 'sinatra'
+gem "sinatra-session"
 
 group :development, :test do
   gem 'capybara'
@@ -10,5 +11,4 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'shotgun'
-  gem "sinatra-session"
 end
