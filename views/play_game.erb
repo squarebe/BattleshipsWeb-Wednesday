@@ -7,7 +7,7 @@
     <%= session[:game].player_1.shoot @coordinates.to_sym %>
   <% end %>
   <% if session[:game].has_winner? %>
-  <a href="/">New Game</a>
+    <a href="/">New Game</a>
   <% end %>
   <pre><%= session[:game].opponent_board_view(session[:game].player_1) %></pre>
 </div>
