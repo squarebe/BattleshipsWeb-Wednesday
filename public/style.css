@@ -1,0 +1,13 @@
+p.groove {	border-style: groove;
+						border-color: red;
+						max-width:500px;
+    				margin: auto;
+						border-width: 5px;} 
+div { 			background-color: #b0c4de;
+						max-width:500px;
+    				margin: auto;
+}
+a {   			color: black;
+						font-size: 40px;
+						font-family: Courier;
+}
